@@ -1,0 +1,36 @@
+.page {
+  &__title {
+    font-weight: bold;
+    font-size: 24px;
+    color: var(--page-name-color);
+    padding: 20px 0;
+    border-bottom: 1px solid var(--page-border-color);
+
+    &.sep {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .btn {
+      font-weight: normal;
+      font-size: 16px;
+    }
+  }
+
+  &__describe {
+    padding: 40px;
+    font-size: 16px;
+    line-height: 22px;
+    background: white;
+
+    h3 {
+      margin-bottom: 20px;
+    }
+
+    ul {
+      padding-left: 20px;
+      line-height: 30px;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+<div class="page news-page" *ngIf="news;else newsLoading">
+  <div class="page__title news-page__name">{{ news.title }}</div>
+  <div class="news-page__body">{{ news.body }}</div>
+  <div class="news-page__author" *ngIf="author;else authorLoading">
+    <div>Posted by {{ author.name }}</div>
+  </div>
+  <ng-template #authorLoading>
+    <loader-element>Author loading...</loader-element>
+  </ng-template>
+  <div class="news-page__actions"></div>
+  <div class="news-page__comments">
+    <div class="news-page__section-name">Comments {{ comments.length && "("+comments.length+")" || '' }}:</div>
+    <ng-container *ngIf="commentsLoading;else commentsLoading">
+      <comment-item *ngFor="let comment of comments" [comment]="comment"></comment-item>
+    </ng-container>
+    <ng-template #commentsLoading>
+      <loader-element>Comments loading...</loader-element>
+    </ng-template>
+  </div>
+</div>
+<ng-template #newsLoading>
+  <loader-element>News loading...</loader-element>
+</ng-template>

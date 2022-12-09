@@ -1,0 +1,18 @@
+<div class="app__sketch">
+  <div class="app__logo">
+    <div class="logo">
+      Welcome to demo app
+    </div>
+    <user-identity></user-identity>
+  </div>
+  <div class="app__nav">
+    <a routerLink="" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact:true}">Main</a>
+    <a routerLink="/news" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact:true}">News</a>
+  </div>
+  <div class="app__page">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="app__footer">
+    &copy; Demo app {{ currentYear }}
+  </div>
+</div>

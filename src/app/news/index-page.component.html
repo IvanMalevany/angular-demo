@@ -1,0 +1,27 @@
+<div class="page">
+  <div class="page__title sep">
+    <div>News page</div>
+    <div>
+      <a
+        routerLink="/news/create"
+        class="btn"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact:true}"
+      >Create news</a>
+    </div>
+  </div>
+  <div class="news-list">
+    <loader-element *ngIf="!news.length && isLoading;else newsList">
+      News Loading...
+    </loader-element>
+    <ng-template #newsList>
+      <news-item class="news-item" *ngFor="let item of news" [news]="item"></news-item>
+    </ng-template>
+  </div>
+  <pagination-element
+    [total]="total"
+    [currentPage]="currentPage"
+    [itemsOnPage]="itemsOnPage"
+    (navigateTo)="navigateTo($event)"
+  ></pagination-element>
+</div>

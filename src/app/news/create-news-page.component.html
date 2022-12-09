@@ -1,0 +1,43 @@
+<div class="page news-page">
+  <div class="page__title">Creating news</div>
+  <div class="news-page__body form">
+    <form [formGroup]="form" novalidate (ngSubmit)="submit()">
+      <div class="form__item">
+        <label class="form__label">Title</label>
+        <input type="text" class="form__control" [ngClass]="{error: form.controls['title'].invalid && form.controls['title'].touched}" name="title" formControlName="title" />
+        <div class="form__error">
+          Title is required
+        </div>
+      </div>
+      <div class="form__item">
+        <label class="form__label">Body</label>
+        <textarea class="form__control" [ngClass]="{error: form.controls['body'].invalid && form.controls['body'].touched}" name="body" formControlName="body"></textarea>
+        <div class="form__error">
+          Body is required min 10 symbols
+        </div>
+      </div>
+      <div class="form__item">
+        <label class="form__label">News area</label>
+        <select class="form__control" name="area" formControlName="area">
+          <option [value]="null" disabled>Select news area</option>
+          <option *ngFor="let prop of area" [value]="prop.id">{{ prop.name }}</option>
+        </select>
+        <div class="form__error visible" *ngIf="!form.controls['area'].value">
+          This is required
+        </div>
+      </div>
+      <div class="form__item">
+        <label class="form__label">Agree to conditions and rules</label>
+        <input type="checkbox" class="form__control" name="conditions_agree" formControlName="conditions_agree" />
+        <div class="form__error visible" *ngIf="form.controls['conditions_agree'].invalid && form.controls['conditions_agree'].touched">
+          This is required
+        </div>
+      </div>
+      <loader-element *ngIf="loading">Creating...</loader-element>
+      <div class="form__item">
+        <button [disabled]="form.invalid || loading" class="btn btn-default">Create</button>
+      </div>
+    </form>
+  </div>
+  <div class="news-page__actions"></div>
+</div>

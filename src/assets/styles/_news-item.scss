@@ -1,0 +1,21 @@
+.news-item {
+  display: block;
+
+  & + & {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px dashed var(--page-border-color)
+  }
+
+  &__name {
+    font-size: 18px;
+  }
+
+  &__intro {
+    padding: 10px 0;
+  }
+
+  &__actions {
+
+  }
+}

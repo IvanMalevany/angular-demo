@@ -1,0 +1,52 @@
+.app {
+  display: block;
+  padding: 30px 0 0 0;
+
+  &__sketch {
+    width: calc(100% - 30px);
+    max-width: $content-max-width;
+    margin: auto;
+  }
+
+  &__nav {
+    padding: 20px 0 0 0;
+
+    a {
+      color: var(--nav-color);
+      font-size: 16px;
+      position: relative;
+
+      &.active {
+        text-decoration: underline;
+      }
+    }
+
+    a + a {
+      margin-left: 20px
+    }
+
+    a + a::before {
+      content: '';
+      position: absolute;
+      left: -10px;
+      top: 3px;
+      height: calc(100% - 4px);
+      border-left: 1px solid var(--nav-color);
+    }
+  }
+
+  &__logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__page {
+
+  }
+
+  &__footer {
+    text-align: center;
+    padding: 40px 0;
+  }
+}
